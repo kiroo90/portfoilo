@@ -1,7 +1,7 @@
 import { useRef} from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { Noise } from 'noisejs' // 노이즈 라이브러리 임포트
+import { Noise } from 'noisejs'
 
 const dotItems = [
     { top: 6.53, left: 11.77, size: 14.19, duration: { desktop: 10, mobile: 8 } },
@@ -15,8 +15,6 @@ const dotItems = [
 function Dots() {
     const canvasRef = useRef(null);
     const containerRef = useRef(null);
-    
-    // 노이즈 인스턴스 생성 (한 번만 생성되도록)
     const noise = useRef(new Noise(gsap.utils.random(0, 1))).current;
 
     const dotsState = useRef(dotItems.map(item => ({ 
@@ -24,7 +22,6 @@ function Dots() {
         currentX: 0, 
         currentY: 0, 
         currentScale: 1,
-        // 각 점마다 고유한 노이즈 시작점 부여
         noiseOffset: gsap.utils.random(0, 1000) 
     })));
 
@@ -35,53 +32,60 @@ function Dots() {
 
         const resize = () => {
             if (!containerRef.current) return;
-            canvas.width = containerRef.current.offsetWidth;
-            canvas.height = containerRef.current.offsetHeight;
+            // 1. DPR(Device Pixel Ratio) 대응으로 선명도 확보
+            const dpr = window.devicePixelRatio || 1;
+            const width = containerRef.current.offsetWidth;
+            const height = containerRef.current.offsetHeight;
+
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            
+            ctx.scale(dpr, dpr);
         };
 
         window.addEventListener('resize', resize);
         resize();
 
         const render = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const isMobile = window.innerWidth <= 767;
+            // scale이 적용된 상태이므로 offsetWidth/Height 기준으로 클리어
+            const width = containerRef.current.offsetWidth;
+            const height = containerRef.current.offsetHeight;
             
-            // 이미지 느낌을 위해 투명도는 낮추고 블러는 높게 설정
+            ctx.clearRect(0, 0, width, height);
+            
+            const isMobile = window.innerWidth <= 767;
             const targetAlpha = isMobile ? 0.2 : 0.1; 
             const targetBlur = isMobile ? '40px' : '75px'; 
             
+            // 2. 사파리 대응: Canvas 내부 필터 대신 CSS 필터 사용
+            if (canvas.style.filter !== `blur(${targetBlur})`) {
+                canvas.style.filter = `blur(${targetBlur})`;
+                canvas.style.webkitFilter = `blur(${targetBlur})`; // 사파리 전용
+            }
+
             dotsState.current.forEach(dot => {
-                const vw = canvas.width / 100;
-                // 노이즈 왜곡을 위해 사이즈를 기존보다 살짝 더 키움 (1.5배)
+                const vw = width / 100;
                 const baseSize = dot.size * vw * dot.currentScale * 1.5;
-                const centerX = (dot.left / 100) * canvas.width + dot.currentX;
-                const centerY = (dot.top / 100) * canvas.height + dot.currentY;
+                const centerX = (dot.left / 100) * width + dot.currentX;
+                const centerY = (dot.top / 100) * height + dot.currentY;
 
                 ctx.save();
-                ctx.filter = `blur(${targetBlur})`;
+                // 3. ctx.filter는 제거하고 globalAlpha만 유지
                 ctx.globalAlpha = targetAlpha;
-                
-                // 단색 채우기 (블러와 결합되어 은은하게 퍼짐)
                 ctx.fillStyle = '#ffffff'; 
 
                 ctx.beginPath();
-                
-                // --- 유기적 형태(Blob) 그리기 로직 ---
-                const steps = 60; // 원을 60개의 점으로 쪼갬
+                const steps = 60;
                 for (let i = 0; i <= steps; i++) {
                     const angle = (i / steps) * Math.PI * 2;
-                    
-                    // 시간에 따라 흐물거리는 속도 (0.0005)
                     const time = Date.now() * 0.0005; 
-                    
-                    // Simplex 노이즈를 이용해 반지름 왜곡값 계산
                     const n = noise.simplex3(
                         Math.cos(angle) * 1.2 + dot.noiseOffset, 
                         Math.sin(angle) * 1.2, 
                         time
                     );
-
-                    // 기본 반지름에 노이즈 왜곡(약 30%) 추가
                     const distortion = 1 + n * 0.3; 
                     const radius = (baseSize / 2) * distortion;
 
@@ -109,10 +113,10 @@ function Dots() {
 
             dotsState.current.forEach((dot) => {
                 const baseDuration = dot.duration[deviceType];
-                const movementLimitX = canvas.width * 0.2; // 이동 범위 살짝 조정
-                const movementLimitY = canvas.height * 0.2;
-
+                
+                // 리사이즈 시에도 정확한 한계를 잡기 위해 동적 계산
                 const moveX = () => {
+                    const movementLimitX = containerRef.current.offsetWidth * 0.2;
                     gsap.to(dot, {
                         currentX: gsap.utils.random(-movementLimitX, movementLimitX),
                         duration: gsap.utils.random(baseDuration * 1.2, baseDuration * 1.8),
@@ -122,6 +126,7 @@ function Dots() {
                 };
 
                 const moveY = () => {
+                    const movementLimitY = containerRef.current.offsetHeight * 0.2;
                     gsap.to(dot, {
                         currentY: gsap.utils.random(-movementLimitY, movementLimitY),
                         duration: gsap.utils.random(baseDuration * 0.7, baseDuration * 1.1),
@@ -152,7 +157,7 @@ function Dots() {
 
     return (
         <div ref={containerRef} style={{position:'absolute',top: 0,left:0, width: '100%', height: '100%', overflow: 'hidden', background: 'transparent' }}>
-            <canvas ref={canvasRef} style={{ display: 'block' }} />
+            <canvas ref={canvasRef} style={{ display: 'block',willChange: 'filter, transform' }} />
         </div>
     )
 }
