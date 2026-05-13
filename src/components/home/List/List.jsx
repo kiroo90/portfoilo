@@ -39,6 +39,7 @@ function List(){
                     { opacity: 0, x: i * -15 },
                     {
                         opacity: 1,
+                        force3D: true,
                         x: 0,
                         scrollTrigger: {
                             trigger: li,
@@ -58,6 +59,7 @@ function List(){
                     {
                         opacity: 1,
                         x: 0,
+                        force3D: true,
                         scrollTrigger: {
                             trigger: li,
                             start: "top 95%",
@@ -76,6 +78,7 @@ function List(){
                     trigger: containerRef.current,
                     start: "top 80%",
                     end: "bottom 50%",
+                    force3D: true,
                     scrub: true,
                     invalidateOnRefresh: true,
                 }
@@ -88,6 +91,7 @@ function List(){
                     trigger: containerRef.current,
                     start: "top 80%",
                     end: "bottom 50%",
+                    force3D: true,
                     scrub: true,
                     invalidateOnRefresh: true,
                 }

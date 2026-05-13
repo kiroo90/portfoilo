@@ -9,7 +9,7 @@
 .listWrap .listBox .left{text-align: right;}
 .listWrap .listBox .right{text-align: left;}
 .listWrap .listBox ul{width: 50%;}
-.listWrap .listBox li{font-family: "DM Mono", monospace; font-weight: 400; font-size: 18px; white-space:nowrap;}
+.listWrap .listBox li{font-family: "DM Mono", monospace; font-weight: 400; font-size: 18px; white-space:nowrap; will-change: transform, opacity; backface-visibility: hidden; -webkit-font-smoothing: antialiased;}
 .rollingLogo{mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
 .rollingLogo .logoWrap{display: flex; align-items: center; justify-content: center; white-space: nowrap; width: max-content;}
 .rollingLogo figure{max-width: clamp(280px, 384 * var(--default-w), 384px);}
