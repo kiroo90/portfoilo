@@ -49,7 +49,6 @@ function Dots() {
         resize();
 
         const render = () => {
-            // scale이 적용된 상태이므로 offsetWidth/Height 기준으로 클리어
             const width = containerRef.current.offsetWidth;
             const height = containerRef.current.offsetHeight;
             
@@ -58,11 +57,9 @@ function Dots() {
             const isMobile = window.innerWidth <= 767;
             const targetAlpha = isMobile ? 0.2 : 0.1; 
             const targetBlur = isMobile ? '40px' : '75px'; 
-            
-            // 2. 사파리 대응: Canvas 내부 필터 대신 CSS 필터 사용
             if (canvas.style.filter !== `blur(${targetBlur})`) {
                 canvas.style.filter = `blur(${targetBlur})`;
-                canvas.style.webkitFilter = `blur(${targetBlur})`; // 사파리 전용
+                canvas.style.webkitFilter = `blur(${targetBlur})`;
             }
 
             dotsState.current.forEach(dot => {
@@ -72,7 +69,6 @@ function Dots() {
                 const centerY = (dot.top / 100) * height + dot.currentY;
 
                 ctx.save();
-                // 3. ctx.filter는 제거하고 globalAlpha만 유지
                 ctx.globalAlpha = targetAlpha;
                 ctx.fillStyle = '#ffffff'; 
 
@@ -113,8 +109,6 @@ function Dots() {
 
             dotsState.current.forEach((dot) => {
                 const baseDuration = dot.duration[deviceType];
-                
-                // 리사이즈 시에도 정확한 한계를 잡기 위해 동적 계산
                 const moveX = () => {
                     const movementLimitX = containerRef.current.offsetWidth * 0.2;
                     gsap.to(dot, {
