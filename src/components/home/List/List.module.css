@@ -1,0 +1,40 @@
+:root{
+    --default-w: calc(100vw / 1920);
+    --base-w: 1920;
+    --vw: calc(100vw / var(--base-w));
+}
+.listWrap {overflow: hidden; padding-bottom: 130px;}
+.listWrap h2{position: relative; font-family: "Mona Sans", sans-serif; font-weight: 900; font-size: 80px; font-variation-settings: "wdth" 70, "wght" 800;font-optical-sizing: auto;text-align: center; z-index: 10; color: #141414;}
+.listWrap .listBox{display: flex; justify-content: center; gap: 0 40px; margin-top: -10px;}
+.listWrap .listBox .left{text-align: right;}
+.listWrap .listBox .right{text-align: left;}
+.listWrap .listBox ul{width: 50%;}
+.listWrap .listBox li{font-family: "DM Mono", monospace; font-weight: 400; font-size: 18px; white-space:nowrap;}
+.rollingLogo{mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
+.rollingLogo .logoWrap{display: flex; align-items: center; justify-content: center; white-space: nowrap; width: max-content;}
+.rollingLogo figure{max-width: clamp(280px, 384 * var(--default-w), 384px);}
+.rollingLogo figure img{width: 100%;}
+
+.rollingLogo .logoWrapLeft{animation: rollingLeft 30s linear infinite;}
+.rollingLogo .logoWrapRight{animation: rollingRight 30s linear infinite; margin-top: 10px;}
+
+@media screen and (max-width: 1400px) {
+    :root{
+        --base-w: 1400;
+        --vw: calc(100vw / var(--base-w));
+    }
+    .listWrap {padding-bottom: clamp(60px, 130 * var(--vw), 130px);}
+    .listWrap h2{font-size:  clamp(60px, 80 * var(--vw), 80px);}
+    .listWrap .listBox{gap:clamp(10px, 40 * var(--vw), 40px)}
+    .listWrap .listBox li{font-size: clamp(12px, 18 * var(--vw), 18px);}
+    .rollingLogo figure{max-width: clamp(200px, 280 * var(--vw), 280px);}
+}
+
+@keyframes rollingLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes rollingRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+}

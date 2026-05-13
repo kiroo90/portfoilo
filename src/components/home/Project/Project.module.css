@@ -1,0 +1,76 @@
+:root{
+    --default-w: calc(100vw / 1920);
+    --base-w: 1920;
+    --vw: calc(100vw / var(--base-w));
+}
+/* tit */
+.secTit{padding: 200px 0 300px;}
+.secTit{ background: #f9f9f9;}
+.secTit h2{font-family: "Mona Sans", sans-serif; font-weight: 900; font-size: 90px; letter-spacing: 0.01em; font-variation-settings: "wdth" 80, "wght" 900;font-optical-sizing: auto;text-align: center; color: #141414;}
+.secTit h2 span{opacity: 0;}
+.projectWrap{position: relative; z-index: 10; padding-bottom: 100px; }
+.projectWrap::before{content: ''; position: absolute; top: -98px; left: 0; width: 100%; height: 100px; background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(249, 249, 249, 1) 100%); pointer-events: none;}
+.projectWrap .innerBox{position: relative;background: #f9f9f9;}
+.projectWrap .item{ display:flex; justify-content: flex-end; padding: 0 clamp(16px, 40 * var(--default-w), 40px); background: #f9f9f9; box-sizing: border-box;}
+.projectWrap .txtContainer {position: absolute; top: 0; left: 0; width: calc(50% - 40px); height: 100vh; padding-left:clamp(16px, 40 * var(--default-w), 40px); box-sizing: border-box; z-index: 20;}
+.projectWrap .txtContainer .txtBox{position: absolute; top: 40%; transform: translateY(-50%); font-family: 'Pretendard'; width: 100%;}
+.projectWrap .mobileTxtBox{display: none;}
+.projectWrap .txtBox h3{display: flex; align-items: center; gap:10px; font-weight: 700; font-size: 34px; color: #272727; letter-spacing: 0.05em;}
+.projectWrap .txtBox .linkWrap{display: inline-flex; font-size: 14px; line-height: 1;}
+.projectWrap .txtBox > span{display: block; margin-top: 6px; font-weight: 500; font-size: 14px; color: #b5b5b5;}
+.projectWrap .txtBox p{margin-top: 20px; font-weight: 500; font-size: 14px; line-height: 1.6em; color: #b5b5b5; word-break: keep-all;}
+.projectWrap .txtBox a{display: inline-block; vertical-align: top; line-height: 26px; background: #eee; border-radius:40px; text-align: center; color: #333; font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -0.02em; padding: 0 16px;}
+.projectWrap .item .videoBox{width: 50%; margin-left: auto; background: #F3F3F3; border-radius: 10px; padding: clamp(20px, 58 * var(--default-w), 58px) clamp(40px, 80 * var(--vw), 80px); box-sizing: border-box; margin-bottom: 60px;}
+.projectWrap .item:last-of-type .videoBox{margin-bottom: 0;}
+.projectWrap .item .videoBox video{width: 100%; height: 100%; border-radius: 10px;}
+
+@media screen and (min-width:1921px) {
+    :root{
+        --em: clamp(16px, 0.83vw, 48px)
+    }
+    .projectWrap .txtBox{font-size: var(--em);}
+    .projectWrap .txtBox h3{font-size: 2.13em;}
+    .projectWrap .txtBox .linkWrap{font-size: 0.41em;}
+    .projectWrap .txtBox .linkWrap a{font-size: 1em; line-height: 1.86em; padding: 0 1.14em;}
+    .projectWrap .txtBox > span{margin-top: 0.38em; font-size: 0.88em;}
+    .projectWrap .txtBox p{margin-top: 1.25em; font-size: 0.88em;}
+}
+
+@media screen and (max-width: 1400px) {
+    :root{
+        --base-w: 1400;
+        --vw: calc(100vw / var(--base-w));
+    }
+    .secTit{padding: clamp(160px, 200 * var(--vw), 200px) 0 clamp(260px, 300 * var(--vw), 300px);}
+    .secTit h2{font-size:  clamp(71px, 90 * var(--vw), 90px);}
+    .projectWrap .txtContainer .txtBox h3{font-size: clamp(24px, 34 * var(--vw), 34px);}
+    
+}
+
+@media screen and (max-width: 1024px) {
+    :root{
+        --base-w: 1024;
+        --vw: calc(100vw / var(--base-w));
+    }
+    .secTit{padding: clamp(100px, 200 * var(--vw), 200px) 0 clamp(140px, 300 * var(--vw), 300px);}
+    .secTit h2{font-size: clamp(36px, 90 * var(--vw), 90px);}
+    .projectWrap{padding-bottom: clamp(80px, 100 * var(--vw), 100px);}
+    .projectWrap .txtContainer{display: none;}
+    .projectWrap .innerBox{width: 100%;}
+    .projectWrap .item{flex-wrap:wrap; gap:clamp(20px, 30 * var(--vw), 30px) 0; width: 100%; padding: 0 16px; margin-bottom: clamp(40px, 60 * var(--vw), 60px);}
+    .projectWrap .item:last-of-type{margin-bottom: 0;}
+    .projectWrap .item .videoBox{width: 100%; margin-bottom: 0; padding: clamp(20px, 40 * var(--vw), 40px) clamp(30px, 60 * var(--vw), 60px);}
+    .projectWrap .mobileTxtBox{display: block; width: 100%;}
+    .projectWrap .txtBox h3{font-size: clamp(26px, 34 * var(--vw), 34px);}
+    .projectWrap .txtBox > span{font-size: clamp(12px, 14 * var(--vw), 14px); margin-top: 4px;}
+    .projectWrap .txtBox p{margin-top: clamp(14px, 20 * var(--vw), 20px);}  
+} 
+
+@media screen and (max-width: 500px) {
+    .projectWrap .txtBox p br{display: none;}
+}
+
+@media screen and (max-width: 480px) {
+    .projectWrap .txtBox p br{display: none;}
+    .projectWrap .txtBox h3{font-size: 22px;}
+}

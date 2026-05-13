@@ -1,0 +1,127 @@
+:root{
+    --base-w: 1920;
+    --vw: calc(100vw / var(--base-w));
+}
+
+.visual{position: relative; background-color: #181918; width: 100%; height: 100vh; min-height: 760px; overflow: hidden;}
+.pBox{position: absolute; top: 50%; left: 50%; width: 100%; max-width: 1300px; padding: 80px 0; transform: translate(-50%,-50%); z-index: 1000;  perspective: 2000px;}
+.card{width: 100%; max-width: 1100px; padding: 30px 30px 0; margin: 0 auto; border: 1px solid rgba(249,249,249,0.2); border-radius:20px; background: rgba(20, 20,20,0.2); backdrop-filter: blur(15px); box-shadow: inset 0 0 30px 6px rgba(255, 255, 255, 0.2); box-sizing: border-box; will-change: transform; transform-style: preserve-3d; transform-origin: center;}
+.card .flex{display: flex; gap:0 30px; padding-bottom: 20px;}
+.card .flex figure{width: 360px; border-radius: 10px; background: #999; overflow: hidden;}
+.card .flex .wrap{width: calc(100% - 360px);}
+.card .flex .wrap .titBox{display: flex; align-items: flex-start; justify-content: space-between; padding-top: 6px;}
+.card .flex .wrap .titBox h2{font-weight: 800; font-size: 40px; line-height: 1.5; letter-spacing: -0.02em; color: #e5e5e5;}
+.card .flex .wrap .titBox h2 span{display: block; font-size: 28px; line-height: 1;}
+.card .flex .wrap .titBox > span{display: inline-block; vertical-align: top; width: 161px; margin-top: 20px; line-height: 35px; border: 1px solid rgba(217,217,217,0.1); border-radius: 50px; font-weight: 700; font-size: 16px; color: #aaa; text-align: center;}
+.card .flex .wrap .stats{display: flex; align-items: center; margin-top: 24px;}
+.card .flex .wrap .stats li{position: relative; flex:1; padding: 20px 0; border-top: 1px solid rgba(249,249,249,0.15); border-bottom: 1px solid rgba(249,249,249,0.15); box-sizing: border-box; text-align: center; }
+.card .flex .wrap .stats li::after{content:""; position: absolute; top: 50%; right: 0; width: 1px; height: 54px; background: rgba(249,249,249,0.15); transform: translateY(-50%);}
+.card .flex .wrap .stats li:last-of-type::after{display: none;}
+.card .flex .wrap .stats li span{font-weight: 700; font-size: 12px; letter-spacing: 0.2em; color: #949494;}
+.card .flex .wrap .stats li p{margin-top: 10px; font-weight: 500; font-size: 16px; color: #e5e5e5; }
+.card .flex .wrap .infoBox{font-family: 'Pretendard'; margin-top: 18px;}
+.card .flex .wrap .infoBox p{ font-weight: 500; font-size: 16px; color: #949494; line-height: 1.6;word-break: keep-all; transition: color 0.3s;}
+.card .flex .wrap .infoBox ul{display: flex; margin-top: 20px;}
+.card .flex .wrap .infoBox ul li{flex: 1; font-weight: 500; font-size: 16px; color: #949494; line-height: 1.5; transition: color 0.3s;}
+.card .flex .wrap .infoBox ul li span{display: block; font-weight: 700;}
+.card .flex .wrap .skills{display: flex; flex-wrap:wrap; gap:10px; margin-top: 24px;}
+.card .flex .wrap .skills li{position: relative; padding: 3px 9px 3px 23px; color: #949494; border: 1px solid rgba(217,217,217,0.1); border-radius: 40px; box-sizing: border-box; font-size: 12px; transition: color 0.3s;}
+.card .flex .wrap .skills li::before{content:""; position: absolute; top: 0; left: 7px; width: 14px; height: 100%; background: url("./src/assets/img/icon-star.svg") no-repeat 50% 50% / contain; }
+.card .box{display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(217,217,217,0.1); box-sizing: border-box; height: 50px;}
+.card .box span{font-weight: 500; font-size: 14px; color: #949494;}
+.card .box span img{margin-right: 2px;}
+
+@media (hover: hover){
+    .pBox:hover .card .flex .wrap .infoBox ul li,
+    .pBox:hover .card .flex .wrap .skills li,
+    .pBox:hover .card .flex .wrap .infoBox p{color: #e5e5e5;}
+}
+
+@media screen and (min-width:1921px) {
+    :root{
+        --em: clamp(16px, 0.83vw, 48px)
+    }
+    .visual{ font-size: var(--em);}
+    .pBox{max-width: 81.25em; padding: 5.00em 0;}
+    .card{max-width: 68.75em; padding: 1.88em 1.88em 0;}
+    .card .flex{gap:0 1.88em;}
+    .card .flex figure{width: 22.50em;}
+    .card .flex .wrap{width: calc(100% - 22.50em);}
+    .card .flex .wrap .titBox{padding-top: 0.38em;}
+    .card .flex .wrap .titBox h2{font-size: 2.50em;}
+    .card .flex .wrap .titBox h2 span{font-size: 0.70em;}
+    .card .flex .wrap .titBox > span{width: 10.06em; margin-top: 1.25em; line-height: 2.19em; font-size: var(--em);}
+    .card .flex .wrap .stats{margin-top:1.50em;}
+    .card .flex .wrap .stats li{padding:1.25em;}
+    .card .flex .wrap .stats li::after{height: 3.38em;}
+    .card .flex .wrap .stats li span{font-size: 0.75em;}
+    .card .flex .wrap .stats li p{font-size: 1em;}
+    .card .flex .wrap .infoBox{margin-top: 1.13em;}
+    .card .flex .wrap .infoBox p{font-size: 1em;}
+    .card .flex .wrap .infoBox ul{margin-top: 1.25em;}
+    .card .flex .wrap .infoBox ul li{font-size: 1em;}
+    .card .flex .wrap .skills{margin-top: 1.50em;}
+    .card .flex .wrap .skills li{padding: 0.25em 0.75em 0.25em 1.917em; font-size: 0.75em;}
+    .card .flex .wrap .skills li::before{left: 0.583em; width: 1.167em;}
+    .card .box{height: 3.13em;}
+    .card .box span{font-size: 0.88em;}
+    .card .box span img{margin-right: 0.14em;}
+}
+@media screen and (max-width:1300px) {
+    :root{
+        --base-w: 1300;
+    }
+    .pBox{padding: clamp(16px, 40 * var(--vw), 40px); max-width: 1100px; box-sizing: border-box;}
+    .card{padding: clamp(20px, 30 * var(--vw), 30px) clamp(20px, 30 * var(--vw), 30px) 0;}
+    .card .flex{gap: 0 clamp(20px, 30 * var(--vw), 30px)}
+    .card .flex .wrap .titBox h2{font-size: clamp(24px, 40 * var(--vw), 40px);}
+    .card .flex .wrap .titBox h2 span{font-size: clamp(18px, 28 * var(--vw), 28px);}
+    .card .flex .wrap .titBox > span{font-size: clamp(14px, 16 * var(--vw), 16px); width: clamp(130px, 161 * var(--vw), 161px);}
+    .card .flex .wrap .stats li{padding: clamp(10px, 20 * var(--vw), 20px) 0;}
+    .card .flex .wrap .stats li::after{height: clamp(44px, 54 * var(--vw), 54px);}
+    .card .flex .wrap .stats li p{margin-top: clamp(4px, 10 * var(--vw), 10px);}
+    .card .flex .wrap .infoBox ul li,
+    .card .flex .wrap .infoBox p{font-size: clamp(15px, 16 * var(--vw), 16px);}
+    .card .flex .wrap .infoBox ul{margin-top: clamp(12px, 20 * var(--vw), 20px);}
+    .card .flex .wrap .skills{margin-top: clamp(16px, 24 * var(--vw), 24px);}
+    .card .flex .wrap .skills li{font-size: clamp(10px, 12 * var(--vw), 12px);}
+    .card .flex .wrap .skills li::before{width: clamp(12px, 14 * var(--vw), 14px);}
+    .card .box{height: clamp(40px, 50 * var(--vw), 50px);}
+    .card .box span{font-size: clamp(10px, 14 * var(--vw), 14px);}
+    .card .box span img{width: clamp(8px, 10 * var(--vw), 10px);}
+}
+
+@media screen and (max-width:1024px) {
+    :root{
+        --base-w: 1024;
+    }
+    .card .flex figure{width: 36%;}
+    .card .flex .wrap{width: 74%;}
+}
+@media screen and (max-width:768px) {
+    :root{
+        --base-w: 768;
+    }
+    .pBox{padding: 0 clamp(16px, 40 * var(--vw), 40px);}
+    .card{max-width: 500px;}
+    .card .flex{flex-wrap:wrap; gap: 20px}
+    .card .flex figure{width: 100%; height: 260px;}
+    .card .flex .wrap{width: 100%;}
+    .card .flex .wrap .titBox{padding-top: 0;}
+    .card .flex .wrap .titBox h2{font-size: 20px;}
+    .card .flex .wrap .titBox h2 span{font-size: 16px;}
+    .card .flex .wrap .titBox > span{font-size: 12px; width: auto; line-height: 26px; padding: 0 12px; margin-top: 6px;}
+    .card .flex .wrap .stats{margin-top: 12px;}
+    .card .flex .wrap .stats li{padding: 6px 0 10px;}
+    .card .flex .wrap .stats li span{font-size: 10px;}
+    .card .flex .wrap .stats li p{margin-top: 4px; font-size: 12px;}
+    .card .flex .wrap .stats li::after{height: 30px;}
+    .card .flex .wrap .infoBox{margin-top: 14px;}
+    .card .flex .wrap .skills{margin-top: 10px; gap:5px}
+}
+
+@media screen and (max-width:767px) {
+    .visual{height: auto; padding: 60px 0;}
+    .card .box span{font-size: 12px;}
+    .card .box span img{width:9px;}
+}
