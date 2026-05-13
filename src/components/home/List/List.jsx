@@ -8,11 +8,11 @@ const leftProject = ['LightKeeper', 'illiyoon', 'AnyCasting', 'Sulwhasoo', 'Lane
 const rightProject = ['B.Ready', 'AutoSeed', 'Stop Hunger', 'Curiosis', 'NextLab', 'Abise', 'Curiox', 'PriceBot Cafe24 StoreApp', 'Kdone', 'Korea Shipping Cor.', 'Saenu', 'INHA UNIVERSITY', 'Qucell', 'Innovotherapeutics', 'ICM Bio', 'SatComForum', 'BYD AJ Rental', 'Arun Ltd.', 'DaeHeungWood', 'AmosPro Mall Maint.', 'Chung-Ryong Ent.', 'AyunchePro Mall Maint.', 'LogenSoft', 'Prompt Hub Admin', 'inmarkasset', 'Medicoson', 'Buwon Service', 'DesignWu-Dio', 'hiperWall', 'AP Color Station', 'Avalostx', 'KoreaHoist', 'JS-Interger', 'The N Corp.', 'JinoMotors', 'Biltech'];
 
 const leftLogoImg = [
-    '/src/assets/img/img-logo01.png','/src/assets/img/img-logo02.png','/src/assets/img/img-logo03.png','/src/assets/img/img-logo04.png','/src/assets/img/img-logo05.png','/src/assets/img/img-logo06.png','/src/assets/img/img-logo07.png','/src/assets/img/img-logo08.png',
+    '/img/img-logo01.png','/img/img-logo02.png','/img/img-logo03.png','/img/img-logo04.png','/img/img-logo05.png','/img/img-logo06.png','/img/img-logo07.png','/img/img-logo08.png',
 ]
 
 const rightLogoImg = [
-    '/src/assets/img/img-logo09.png','/src/assets/img/img-logo10.png','/src/assets/img/img-logo11.png','/src/assets/img/img-logo12.png','/src/assets/img/img-logo13.png','/src/assets/img/img-logo14.png','/src/assets/img/img-logo15.png','/src/assets/img/img-logo16.png',
+    '/img/img-logo09.png','/img/img-logo10.png','/img/img-logo11.png','/img/img-logo12.png','/img/img-logo13.png','/img/img-logo14.png','/img/img-logo15.png','/img/img-logo16.png',
 ]
 
 const leftRollingLogoImg = [...leftLogoImg, ...leftLogoImg, ...leftLogoImg, ...leftLogoImg];

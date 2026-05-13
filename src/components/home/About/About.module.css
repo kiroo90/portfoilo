@@ -26,7 +26,7 @@
 .card .flex .wrap .infoBox ul li span{display: block; font-weight: 700;}
 .card .flex .wrap .skills{display: flex; flex-wrap:wrap; gap:10px; margin-top: 24px;}
 .card .flex .wrap .skills li{position: relative; padding: 3px 9px 3px 23px; color: #949494; border: 1px solid rgba(217,217,217,0.1); border-radius: 40px; box-sizing: border-box; font-size: 12px; transition: color 0.3s;}
-.card .flex .wrap .skills li::before{content:""; position: absolute; top: 0; left: 7px; width: 14px; height: 100%; background: url("./src/assets/img/icon-star.svg") no-repeat 50% 50% / contain; }
+.card .flex .wrap .skills li::before{content:""; position: absolute; top: 0; left: 7px; width: 14px; height: 100%; background: url("/img/icon-star.svg") no-repeat 50% 50% / contain; }
 .card .box{display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(217,217,217,0.1); box-sizing: border-box; height: 50px;}
 .card .box span{font-weight: 500; font-size: 14px; color: #949494;}
 .card .box span img{margin-right: 2px;}

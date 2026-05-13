@@ -141,7 +141,7 @@ function About() {
                         </div>
                     </div>
                     <div className={styles.box}>
-                        <span><img src="/src/assets/img/icon-dot01.svg" alt="점 아이콘" /> No.001</span>
+                        <span><img src="/img/icon-dot01.svg" alt="점 아이콘" /> No.001</span>
                         <span>2026 - KR</span>
                     </div>
                 </div>

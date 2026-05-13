@@ -13,7 +13,7 @@ const projectData = [
         카페24 플랫폼 환경에 맞춰 기존 기능을 유지하면서도
         시스템 구조에 적합하도록 기능을 커스터마이징하여 구축했습니다.
         웹 표준과 접근성을 고려해 안정적이고 일관된 사용자 경험을 구현했습니다.`,
-        video: '/src/assets/video/laneige.mp4',
+        video: '/video/laneige.mp4',
         link: 'https://laneige.com/'
     },
     {
@@ -24,7 +24,7 @@ const projectData = [
         카페24 플랫폼 환경에 맞춰 기존 기능을 유지하면서도
         시스템 구조에 적합하도록 기능을 커스터마이징하여 구축했습니다.
         웹 표준과 접근성을 고려해 안정적이고 일관된 사용자 경험을 구현했습니다.`,
-        video: '/src/assets/video/prmrbeauty.mp4',
+        video: '/video/prmrbeauty.mp4',
         link: 'https://www.prmrbeauty.com/'
     },
     {
@@ -36,7 +36,7 @@ const projectData = [
         웹 접근성과 SEO를 고려해 HTML/CSS 구조를 설계했습니다.
         GSAP을 활용해 메인 페이지의 핵심 인터랙션을 개발하여
         시각적 완성도와 브랜드 아이덴티티를 강화했습니다.`,
-        video: '/src/assets/video/makeon.mp4',
+        video: '/video/makeon.mp4',
         link: 'https://make-on.com/'
     },
     {
@@ -48,7 +48,7 @@ const projectData = [
         웹 접근성과 SEO를 고려해 HTML/CSS를 최적화했습니다.
         JavaScript와 jQuery를 활용해 UI 인터랙션을 구현했으며,
         풀페이지 스크롤 라이브러리를 활용해 부드러운 전환 효과를 구현했습니다.`,
-        video: '/src/assets/video/kdone.mp4',
+        video: '/video/kdone.mp4',
         link: 'https://ceprod.kdone.co.kr/kr/index.asp'
     },
     {
@@ -60,7 +60,7 @@ const projectData = [
         정적 페이지와 UI 인터랙션을 HTML/CSS/JavaScript로 구현했습니다.
         메인 페이지에는 제이쿼리를 활용해 직접 제작한 풀페이지 스크롤 스크립트를 적용하여,
         부드럽고 안정적인 전환 효과를 구현했습니다.`,
-        video: '/src/assets/video/hanwha.mp4',
+        video: '/video/hanwha.mp4',
         link: 'https://hanwhaconvergence.com/kr/'
     },
 ];
