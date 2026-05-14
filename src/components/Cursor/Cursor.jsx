@@ -4,10 +4,29 @@ import styles from './Cursor.module.css';
 const Cursor = () => {
     const dotRef = useRef(null); 
     const circleRef = useRef(null); 
+    const hasMoved = useRef(false);
     const hoverTargets = 'a, button';
     useEffect(() => {
+        const setInitialPosition = () => {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            if (dotRef.current) {
+                dotRef.current.style.transform = `translate3d(${centerX - 3}px, ${centerY - 3}px, 0)`;
+            }
+            if (circleRef.current) {
+                circleRef.current.style.transform = `translate3d(${centerX - 20}px, ${centerY - 20}px, 0)`;
+            }
+        };
+        setInitialPosition();
         const moveCursor = (e) => {
             const { clientX, clientY } = e;
+            if (!hasMoved.current) {
+                if (dotRef.current) dotRef.current.style.opacity = '1';
+                if (circleRef.current) circleRef.current.style.opacity = '1';
+                hasMoved.current = true;
+            }
+
             window.requestAnimationFrame(() => {
                 if (dotRef.current) {
                     dotRef.current.style.transform = `translate3d(${clientX - 3}px, ${clientY - 3}px, 0)`;
