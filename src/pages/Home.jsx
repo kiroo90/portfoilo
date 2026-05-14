@@ -69,17 +69,19 @@ function Home() {
     }, []);
 
     return (
-        <div id="smooth-wrapper" ref={wrapperRef}>
-            <main id="smooth-content" ref={contentRef} >
-                <div style={{ background: '#f9f9f9'}}>
+        <div id="smooth-wrapper" ref={wrapperRef} style={{pointerEvents: 'none',zIndex:"1"}}>
+            <main id="smooth-content" ref={contentRef} style={{ 
+            display: 'flex', 
+            flexDirection: 'column',pointerEvents: 'none'
+        }}>
+                <div style={{ background: '#f9f9f9', width:"100%",pointerEvents: 'auto',}}>
                     <About />
                     <Project />
                     <List />
                 </div>
                 <div style={{ 
                     height: 'var(--footer-height)', 
-                    width: '100%', 
-                    pointerEvents: 'none'
+                    width: '100%' 
                 }} />
             </main>
         </div>

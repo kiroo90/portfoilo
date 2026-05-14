@@ -71,16 +71,12 @@ function ProjectItem(){
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
-
-        // 1024px보다 클 때만 실행되는 가드 (Desktop)
         mm.add("(min-width: 1025px)", () => {
             const items = gsap.utils.toArray(`.${styles.item}`);
             const txtBoxes = txtContainerRef.current
                 ? gsap.utils.toArray(txtContainerRef.current.querySelectorAll(`.${styles.txtBox}`))
                 : [];
             const videoBoxes = gsap.utils.toArray(`.${styles.videoBox}`);
-
-            // 1. 메인 핀 고정 스크롤 트리거
             ScrollTrigger.create({
                 trigger: container.current,
                 start: "top top",
@@ -90,13 +86,9 @@ function ProjectItem(){
                 invalidateOnRefresh: true,
                 pinType: "transform",
             });
-
-            // 2. 개별 아이템 애니메이션 루프
             items.forEach((item, i) => {
                 const videoBox = item.querySelector(`.${styles.videoBox}`);
                 const targetTxt = txtBoxes[i];
-
-                // 텍스트 등장/퇴장 (ToggleActions)
                 gsap.fromTo(targetTxt, 
                     { autoAlpha: 0, zIndex: 1 },
                     {
@@ -113,8 +105,6 @@ function ProjectItem(){
                         }
                     }
                 );
-
-                // 비디오 박스 스케일 인 (Scrub)
                 gsap.fromTo(videoBox, 
                     { opacity: 0.8, scale: 0.8, force3D: true }, 
                     {
@@ -128,8 +118,6 @@ function ProjectItem(){
                         }
                     }
                 );
-
-                // 비디오 박스 스케일 아웃 (Scrub)
                 gsap.fromTo(videoBox, 
                     { opacity: 1, scale: 1, force3D: true }, 
                     {
@@ -146,26 +134,21 @@ function ProjectItem(){
             });
             ScrollTrigger.refresh();
             return () => {
-                // GSAP이 부여한 인라인 스타일(pin, transform, opacity 등)을 모두 제거합니다.
-                // pin이 걸렸던 txtContainerRef와 애니메이션 대상들을 모두 포함하세요.
                 gsap.set([txtContainerRef.current, txtBoxes, videoBoxes], { 
                     clearProps: "all" 
                 });
             };
         });
-
-        // Cleanup: 컴포넌트 언마운트나 미디어 쿼리 변경 시 자동으로 모든 애니메이션 제거
         return () => mm.revert();
 
     }, { scope: container });
 
     return (
         <div className={styles.projectWrap} ref={container}>
-            {/* 1. 텍스트 박스들이 모여있는 고정 컨테이너 */}
             <div className={styles.txtContainer} ref={txtContainerRef}>
                 {projectData.map((item) => (
                     <div key={item.id} className={styles.txtBox}>
-                        <h3>{item.title} <span className={styles.linkWrap}><a href={item.link} className={styles.linkBtn} target='_blank' rel="noreferrer">WebSite</a></span></h3>
+                        <h3>{item.title} <span className={styles.linkWrap}><a href={item.link} className={styles.linkBtn} target='_blank' rel="noreferrer" aria-label={`${item.title || '해당 서비스'} 웹사이트`} title="새 창으로 이동">WebSite</a></span></h3>
                         <span>{item.tags}</span>
                         <p>
                             {item.desc.split('\n').map((line, idx) => (
@@ -177,7 +160,6 @@ function ProjectItem(){
                     </div>
                 ))}
             </div>
-            {/* 2. 스크롤 트리거 및 비디오가 들어있는 실제 섹션들 */}
             <div className={styles.innerBox}>
                 {projectData.map((item) => (
                     <div className={styles.item} key={item.id}>
@@ -187,7 +169,7 @@ function ProjectItem(){
                             </video>
                         </div>
                         <div className={`${styles.mobileTxtBox} ${styles.txtBox}`} >
-                            <h3>{item.title} <span className={styles.linkWrap}><a href={item.link} className={styles.linkBtn} target='_blank' rel="noreferrer">WebSite</a></span></h3>
+                            <h3>{item.title} <span className={styles.linkWrap}><a href={item.link} className={styles.linkBtn} target='_blank' rel="noreferrer" aria-label={`${item.title || '해당 서비스'} 웹사이트`} title="새 창으로 이동">WebSite</a></span></h3>
                             <span>{item.tags}</span>
                             <p>
                                 {item.desc.split('\n').map((line, idx) => (

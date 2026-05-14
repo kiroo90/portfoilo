@@ -3,12 +3,12 @@
     --base-w: 1920;
     --vw: calc(100vw / var(--base-w));
 }
-.footer{position: fixed; bottom: 0; left: 0; width: 100%; z-index: -1; background: #141414; overflow: hidden;font-family: "Mona Sans", sans-serif;  font-size: var(--em);}
+.footer{position: fixed; bottom: 0; left: 0; width: 100%; z-index: 0; background: #141414; overflow: hidden;font-family: "Mona Sans", sans-serif;  font-size: var(--em);}
 .footer .box{padding: 6.25em 0 12.50em; text-align: center;}
 .footer .box .cont{position: relative; margin-bottom: 100px; color: #f9f9f9; z-index: 10;}
 .footer .box .cont span{display: block; font-size: 20px; }
 .footer .box .cont h2{font-weight: 600; font-size: 54px; margin-bottom: 34px;}
-.footer .box .cont button{padding: 12px 40px; font-family: "Inter", sans-serif; font-weight: 500; font-size: 18px; border-radius: 60px; border: none; background: #f9f9f9; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
+.footer .box .cont button{padding: 12px 40px; font-family: "Inter", sans-serif; font-weight: 500; font-size: 18px; border-radius: 60px; border: none; background: #f9f9f9; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer;}
 .footer .bgTypo{position: absolute; bottom: -0.27em; left: 50%; transform: translateX(-50%); font-weight: 900; font-size: 16.25em; font-variation-settings: "wdth" 80, "wght" 900; color: #f9f9f9; text-align: center; opacity: 0.4; z-index: -1; white-space: nowrap;}
 @media screen and (max-width:1919px) {
     :root{

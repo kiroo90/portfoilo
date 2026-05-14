@@ -32,7 +32,6 @@ function Dots() {
 
         const resize = () => {
             if (!containerRef.current) return;
-            // 1. DPR(Device Pixel Ratio) 대응으로 선명도 확보
             const dpr = window.devicePixelRatio || 1;
             const width = containerRef.current.offsetWidth;
             const height = containerRef.current.offsetHeight;
