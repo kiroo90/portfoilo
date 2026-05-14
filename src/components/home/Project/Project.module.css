@@ -19,7 +19,7 @@
 .projectWrap .txtBox .linkWrap{display: inline-flex; font-size: 14px; line-height: 1;}
 .projectWrap .txtBox > span{display: block; margin-top: 6px; font-weight: 500; font-size: 14px; color: #b5b5b5;}
 .projectWrap .txtBox p{margin-top: 20px; font-weight: 500; font-size: 14px; line-height: 1.6em; color: #b5b5b5; word-break: keep-all;}
-.projectWrap .txtBox a{position: relative; display: inline-block; vertical-align: top; line-height: 26px; background: #eee; border-radius:40px; text-align: center; color: #333; font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -0.02em; padding: 0 16px; overflow: hidden;}
+.projectWrap .txtBox a{position: relative; display: inline-block; vertical-align: top; line-height: 26px; background: #eee; border-radius:40px; text-align: center; color: #333; font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -0.02em; padding: 0 16px; overflow: hidden; cursor: none;}
 .projectWrap .txtBox a .btnText{position: relative; z-index: 2;}
 .projectWrap .item .videoBox{width: 50%; margin-left: auto; background: #F3F3F3; border-radius: 10px; padding: clamp(20px, 58 * var(--default-w), 58px) clamp(40px, 80 * var(--vw), 80px); box-sizing: border-box; margin-bottom: 60px;}
 .projectWrap .item:last-of-type .videoBox{margin-bottom: 0;}
