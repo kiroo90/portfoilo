@@ -13,7 +13,7 @@
 .projectWrap .innerBox{position: relative;background: #f9f9f9;}
 .projectWrap .item{ display:flex; justify-content: flex-end; padding: 0 clamp(16px, 40 * var(--default-w), 40px); background: #f9f9f9; box-sizing: border-box;}
 .projectWrap .txtContainer {position: absolute; top: 0; left: 0; width: calc(50% - 40px); height: 100vh; padding-left:clamp(16px, 40 * var(--default-w), 40px); box-sizing: border-box; z-index: 20;}
-.projectWrap .txtContainer .txtBox{position: absolute; top: 40%; transform: translateY(-50%); font-family: 'Pretendard'; width: 100%;}
+.projectWrap .txtContainer .txtBox{position: absolute; top: 50%; transform: translateY(-50%); font-family: 'Pretendard'; width: 100%;}
 .projectWrap .mobileTxtBox{display: none;}
 .projectWrap .txtBox h3{display: flex; align-items: center; gap:10px; font-weight: 700; font-size: 34px; color: #272727; letter-spacing: 0.05em;}
 .projectWrap .txtBox .linkWrap{display: inline-flex; font-size: 14px; line-height: 1;}
