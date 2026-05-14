@@ -1,6 +1,7 @@
 import './App.css'
 import './assets/styles/fonts.css'
 import { useRef, useEffect } from 'react';
+import Cursor from './components/Cursor/Cursor';
 import Header from './components/Header/Header'
 import Home from './pages/Home'
 import Footer from './components/Footer/Footer'
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+      <Cursor />
       <Header />
       <Home />
       <Footer ref={footerRef}/>

@@ -51,8 +51,11 @@ table {
 html {
     -ms-overflow-style: none;
     scrollbar-width: none;
+	cursor: none;
 }
+body{cursor: none;}
 html::-webkit-scrollbar {
     display: none; 
 }
 a{text-decoration: none;}
+

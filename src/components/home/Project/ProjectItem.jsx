@@ -143,12 +143,32 @@ function ProjectItem(){
 
     }, { scope: container });
 
+
+    const updateCoord = (e) => {
+        const bg = e.currentTarget.querySelector(`.${styles.hover_bg}`);
+        if (!bg) return;
+    
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+    
+        bg.style.setProperty('--x', `${x}px`);
+        bg.style.setProperty('--y', `${y}px`);
+    };
+
     return (
         <div className={styles.projectWrap} ref={container}>
             <div className={styles.txtContainer} ref={txtContainerRef}>
                 {projectData.map((item) => (
                     <div key={item.id} className={styles.txtBox}>
-                        <h3>{item.title} <span className={styles.linkWrap}><a href={item.link} className={styles.linkBtn} target='_blank' rel="noreferrer" aria-label={`${item.title || '해당 서비스'} 웹사이트`} title="새 창으로 이동">WebSite</a></span></h3>
+                        <h3>{item.title} 
+                            <span className={styles.linkWrap}>
+                                <a href={item.link} className={styles.linkBtn} onMouseMove={updateCoord} onMouseLeave={updateCoord} target='_blank' rel="noreferrer" aria-label={`${item.title || '해당 서비스'} 웹사이트`} title="새 창으로 이동">
+                                    <span className={styles.hover_bg}></span>
+                                    <span className={styles.btnText}>WebSite</span>
+                                </a>
+                            </span>
+                            </h3>
                         <span>{item.tags}</span>
                         <p>
                             {item.desc.split('\n').map((line, idx) => (
@@ -169,7 +189,14 @@ function ProjectItem(){
                             </video>
                         </div>
                         <div className={`${styles.mobileTxtBox} ${styles.txtBox}`} >
-                            <h3>{item.title} <span className={styles.linkWrap}><a href={item.link} className={styles.linkBtn} target='_blank' rel="noreferrer" aria-label={`${item.title || '해당 서비스'} 웹사이트`} title="새 창으로 이동">WebSite</a></span></h3>
+                            <h3>{item.title} 
+                                <span className={styles.linkWrap}>
+                                    <a href={item.link} className={styles.linkBtn} onMouseMove={updateCoord} onMouseLeave={updateCoord} target='_blank' rel="noreferrer" aria-label={`${item.title || '해당 서비스'} 웹사이트`} title="새 창으로 이동">
+                                        <span className={styles.hover_bg}></span>
+                                        <span className={styles.btnText}>WebSite</span>
+                                    </a>
+                                </span>
+                            </h3>
                             <span>{item.tags}</span>
                             <p>
                                 {item.desc.split('\n').map((line, idx) => (
