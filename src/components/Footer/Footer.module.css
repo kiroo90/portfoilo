@@ -8,7 +8,7 @@
 .footer .box .cont{position: relative; margin-bottom: 100px; color: #f9f9f9; z-index: 10;}
 .footer .box .cont span{display: block; font-size: 20px; }
 .footer .box .cont h2{font-weight: 600; font-size: 54px; margin-bottom: 34px;}
-.footer .box .cont button{padding: 12px 40px; font-family: "Inter", sans-serif; font-weight: 500; font-size: 18px; border-radius: 60px; border: none; background: #f9f9f9; cursor: pointer;}
+.footer .box .cont button{padding: 12px 40px; font-family: "Inter", sans-serif; font-weight: 500; font-size: 18px; border-radius: 60px; border: none; background: #f9f9f9; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
 .footer .bgTypo{position: absolute; bottom: -0.27em; left: 50%; transform: translateX(-50%); font-weight: 900; font-size: 16.25em; font-variation-settings: "wdth" 80, "wght" 900; color: #f9f9f9; text-align: center; opacity: 0.4; z-index: -1; white-space: nowrap;}
 @media screen and (max-width:1919px) {
     :root{
