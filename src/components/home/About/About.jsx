@@ -85,7 +85,7 @@ function About() {
             <div className={styles.pBox} ref={pBoxRef}>
                 <div className={styles.card} ref={boxRef}>
                     <div className={styles.flex}>
-                        <figure><img src="" alt="Lee Dong-geun" /></figure>
+                        <figure><img src="/img/lee.png" alt="Lee Dong-geun" /></figure>
                         <div className={styles.wrap}>
                             <div className={styles.titBox}>
                                 <h2>Lee Dong-geun<span>Sr. Web Publisher</span></h2>
