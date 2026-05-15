@@ -107,7 +107,7 @@
     .card{max-width: 500px;}
     .card .flex{flex-wrap:wrap; gap: 20px}
     .card .flex figure{width: 100%; height: 260px;}
-    .card .flex figure img{object-position: bottom; height: 350px;}
+    .card .flex figure img{object-position: bottom; height:clamp(320px, 350 * var(--vw), 350px);}
     .card .flex .wrap{width: 100%;}
     .card .flex .wrap .titBox{padding-top: 0;}
     .card .flex .wrap .titBox h2{font-size: 20px;}
