@@ -8,7 +8,7 @@ const Footer = forwardRef((props, ref) => {
     const handleCopyEmail = async () => {
         try {
             await navigator.clipboard.writeText(emailAddress);
-            alert('이메일 주소가 복사되었습니다. 테스트');
+            alert('이메일 주소가 복사되었습니다.');
         } catch (err) {
             console.error('복사 에러:', err);
         }
