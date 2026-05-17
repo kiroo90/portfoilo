@@ -11,7 +11,7 @@ const Footer = forwardRef((props, ref) => {
         if (navigator.clipboard && window.isSecureContext) {
             try {
                 await navigator.clipboard.writeText(emailAddress);
-                alert('이메일 주소가 복사되었습니다.');
+                alert('이메일 주소가 복사되었습니다...');
                 return; // 성공 시 함수 종료
             } catch (err) {
                 console.warn('Navigator clipboard 실패, 대체 방식으로 전환합니다:', err);
@@ -38,7 +38,7 @@ const Footer = forwardRef((props, ref) => {
         try {
             const successful = document.execCommand('copy');
             if (successful) {
-                alert('이메일 주소가 복사되었습니다..');
+                alert('이메일 주소가 복사되었습니다.');
             } else {
                 throw new Error('복사 명령 실패');
             }
@@ -72,6 +72,7 @@ const Footer = forwardRef((props, ref) => {
                         onMouseLeave={updateCoord} 
                         aria-label="이메일 주소 복사하기" 
                         title="클릭하면 이메일이 복사됩니다"
+                        type='button'
                     >
                         <span ref={bgRef} className={styles.hover_bg}></span>
                         <span className={styles.btnText}>CONTACT US</span>
