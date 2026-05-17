@@ -82,8 +82,8 @@ function About() {
     return (
         <section className={styles.visual}>
             <Dots />
-            <div className={styles.pBox} ref={pBoxRef}>
-                <div className={styles.card} ref={boxRef}>
+            <div className={styles.pBox}>
+                <div className={styles.card} >
                     <div className={styles.flex}>
                         <figure><img src="/img/lee.png" alt="Lee Dong-geun" /></figure>
                         <div className={styles.wrap}>
