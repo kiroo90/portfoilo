@@ -5,31 +5,13 @@ const Footer = forwardRef((props, ref) => {
     const emailAddress = "kiroo90@naver.com";
     const bgRef = useRef(null);
 
-    // 요청하신 비동기(async/await) 이메일 복사 함수
     const handleCopyEmail = async () => {
         try {
             await navigator.clipboard.writeText(emailAddress);
             alert('이메일 주소가 복사되었습니다. 테스트');
         } catch (err) {
             console.error('복사 에러:', err);
-            // 구형 브라우저나 일부 환경을 위한 fallback(대비책) 추가
-            fallbackCopyText(emailAddress);
         }
-    };
-
-    // navigator.clipboard가 실패했을 때 실행될 복사 함수
-    const fallbackCopyText = (text) => {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand("copy");
-            alert('이메일 주소가 복사되었습니다. 테스트');
-        } catch {
-            alert("복사에 실패했습니다.");
-        }
-        document.body.removeChild(textArea);
     };
 
     const updateCoord = (e) => {
