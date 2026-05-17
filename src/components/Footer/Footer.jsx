@@ -1,4 +1,4 @@
-import { forwardRef,useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import styles from './Footer.module.css';
 
 const Footer = forwardRef((props, ref) => {
@@ -31,7 +31,13 @@ const Footer = forwardRef((props, ref) => {
                 <div className={styles.cont}>
                     <span>LET'S WORK TODAY</span>
                     <h2>LET'S MAKE IT REAL.</h2>
-                    <button onClick={handleCopyEmail} onMouseMove={updateCoord} onMouseLeave={updateCoord} aria-label="이메일 주소 복사하기" title="클릭하면 이메일이 복사됩니다">
+                    <button 
+                        onClick={handleCopyEmail} 
+                        onMouseMove={updateCoord} 
+                        onMouseLeave={updateCoord} 
+                        aria-label="이메일 주소 복사하기" 
+                        title="클릭하면 이메일이 복사됩니다"
+                    >
                         <span ref={bgRef} className={styles.hover_bg}></span>
                         <span className={styles.btnText}>CONTACT US</span>
                     </button>
@@ -39,7 +45,7 @@ const Footer = forwardRef((props, ref) => {
                 <p className={styles.bgTypo} aria-hidden="true">START THE NEXT</p>
             </div>
         </footer>
-    )
+    ); 
 });
 
 Footer.displayName = 'Footer';
